@@ -1,0 +1,13 @@
+body{padding: 0px;margin: 0px;font-size: 50px}
+.title{ width: 100%;height: 100px; }
+.title_left{ align:left;  width: 30%;background: #F88C34;height: 100px;float: left}
+.title_center{align:center; width: 40%;height: 100px;float: left}
+.title_right{ align:right; width: 30%;background:#7BBD39;height: 100px;float: right}
+.title_bottom{background:#7BBD39;width: 100%;height: 1px}
+.content{background:#0166FF;width: 100%;height: 800px;position: relative}
+.login_pan{background:#CCCCFF; width: 20%;height: 500px;position: absolute;right: 80px;top: 100px}
+.login_pan form{ background: #0f0;width: 100% ;height: 250px;}
+.login_pan form div{text-align: center}
+.login_pan form div div{float: left;font-size: 15px;width: 50px;height: 20px;margin-left: 10%;text-align: center}
+.login_pan form div input{float: none;height: 20px;text-align: center}
+.bottom{background: #F88C34; width: 100%;height: 100px}

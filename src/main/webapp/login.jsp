@@ -62,9 +62,7 @@
             type : "POST",
             dataType : "json",
             success : function (result){
-
                    alert(result);
-
             }
         });
     }

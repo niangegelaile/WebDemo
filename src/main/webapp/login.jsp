@@ -93,7 +93,13 @@
             type : "POST",
             dataType : "json",
             success : function (result){
-                  window.location.replace('/page/index')
+                console.log(JSON.stringify(result))
+                if(String(result.result)==="true"){
+                    window.location.href='/page/index'
+                }else {
+                    alert(result)
+                }
+
             }
         });
     }

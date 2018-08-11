@@ -18,9 +18,7 @@ public class UserServiceImpl implements IUserService {
     private UserMapper userMapper;
     @Override  
     public User getUserById(int userId) {
-        // TODO Auto-generated method stub  
-        return this.userMapper.selectByPrimaryKey(userId); 
-    	
+        return this.userMapper.selectByPrimaryKey(userId);
     }
 
 	@Override
@@ -30,23 +28,28 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public List<User> getAll() {
-		// TODO Auto-generated method stub
+
 		return this.userMapper.getAll();
 	}
 	@Override
 	public void updateUserById(User user) {
-		// TODO Auto-generated method stub
-		 this.userMapper.updateByPrimaryKey(user);
+		int effect=userMapper.updateByPrimaryKey(user);
+		if(effect!=1){
+			throw new RuntimeException("修改用户出错");
+		}
+
 	}
 	@Override
 	public void addUser(User user) {
-		// TODO Auto-generated method stub
+
 		 this.userMapper.insert(user);
 	}
 	@Override
 	public void deleteUserById(int id) {
-		// TODO Auto-generated method stub
-		this.userMapper.deleteByPrimaryKey(id);
+		int effect=this.userMapper.deleteByPrimaryKey(id);
+		if(effect!=1){
+			throw new RuntimeException("删除用户出错");
+		}
 	}  
   
 }  

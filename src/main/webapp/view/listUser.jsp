@@ -29,12 +29,12 @@
 				<td>${user.user_name}</td>
 				<td>${user.password}</td>
 				<td>${user.age}</td>
-				<td><a href="<%=path%>/user/UIupdateUser.do?id=${user.id}">update</a></td>
+				<td><a href="<%=path%>/page/updateUser?id=${user.id}">update</a></td>
 				<td><a href="<%=path%>/user/deleteUser.do?id=${user.id}">delete</a></td>
 			</tr>
 		</c:forEach>
 	</table>
 	
-	 <a href="<%=path %>/user/UIaddUser.do">add_User</a>
+	 <a href="<%=path %>/page/addUser">add_User</a>
 </body>
 </html>

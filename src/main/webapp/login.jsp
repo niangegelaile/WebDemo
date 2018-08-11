@@ -62,7 +62,7 @@
             type : "POST",
             dataType : "json",
             success : function (result){
-                   alert(result);
+                  window.location.href='<%=request.getContextPath()%>/page/index'
             }
         });
     }

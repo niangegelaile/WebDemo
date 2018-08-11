@@ -10,8 +10,8 @@
   <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-    <%--<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/login.css"/>--%>
+    <%--<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>--%>
+    <script type="text/javascript" src="./js/ajax.js"></script>
     <style>
     body{padding: 0px;margin: 0px;}
     .title{ width: 100%;height:50px; }
@@ -85,7 +85,7 @@
         var accountInput=document.getElementById("account");
         var passwordInput=document.getElementById("password");
 //        alert(accountInput.value);
-        $.ajax({
+        ajax({
             url : '<%=request.getContextPath()%>/user/login',//不加request.getContextPath()也可以
             data:{account:accountInput.value,password:passwordInput.value},
             cache : false,

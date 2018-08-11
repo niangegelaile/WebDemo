@@ -13,36 +13,67 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
     <%--<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/login.css"/>--%>
     <style>
-    body{padding: 0px;margin: 0px;font-size: 50px}
-    .title{ width: 100%;height: 100px; }
-    .title_left{ align:left;  width: 30%;background: #F88C34;height: 100px;float: left}
-    .title_center{align:center; width: 40%;height: 100px;float: left}
-    .title_right{ align:right; width: 30%;background:#7BBD39;height: 100px;float: right}
-    .title_bottom{background:#7BBD39;width: 100%;height: 1px}
-    .content{background:#0166FF;width: 100%;height: 800px;position: relative}
-    .login_pan{background:#CCCCFF; width: 20%;height: 500px;position: absolute;right: 80px;top: 100px}
-    .login_pan form{ background: #0f0;width: 100% ;height: 250px;}
-    .login_pan form div{text-align: center}
-    .login_pan form div div{float: left;font-size: 15px;width: 50px;height: 20px;margin-left: 10%;text-align: center}
-    .login_pan form div input{float: none;height: 20px;text-align: center}
-    .bottom{background: #F88C34; width: 100%;height: 100px}
+    body{padding: 0px;margin: 0px;}
+    .title{ width: 100%;height:50px; }
+    .content{
+      width: 100%;
+      height: calc(100% - 100px);
+      /*background:#0166FF;*/
+      display:flex;
+      flex-direction: row;
+      align-items: center;
+     }
+    .login_pan{
+      padding: 10px;
+      /*width: 30%;*/
+      /*height: 50%;*/
+      margin: auto auto;
+      background:#CCCCFF;
+     }
+    table{
+      /*width: 100%;*/
+      /*height: 100%;*/
+    }
+    tr{
+      /*height: 25%;*/
+      /*width: 100%;*/
+    }
+    .td_title{
+      width: 50px;
+    }
+    .td_content{
+      /*width: 70%;*/
+    }
+    input{
+      width:100%;
+    }
+    .bottom{background: white; width: 100%;height: 50px}
     </style>
   </head>
   <body>
     <div class="title">
-      <div class="title_left"></div>
-      <div class="title_center"></div>
-      <div class="title_right"></div>
     </div>
-    <div class="title_bottom"></div>
+
     <div class="content">
-      <div class="login_pan">
-        <form>
-          <div style="margin-top: 20px"><div>账号：</div><input id="account" type="text" maxlength="6"/></div>
-          <div style="margin-top: 20px"><div>密码：</div><input id="password" type="password" maxlength="6"/></div>
+
+        <form class="login_pan">
+          <table>
+            <tr>
+              <td class="td_title">账号：</td>
+              <td class=" .td_content"><input id="account" type="text" maxlength="6"/></td>
+            </tr>
+            <tr >
+              <td class="td_title">密码：</td>
+              <td class=" .td_content"><input id="password" type="password" maxlength="6"/></td>
+            </tr>
+            <tr>
+              <td colspan="2"> <button id="but_login">登录</button></td>
+            </tr>
+          </table>
+
         </form>
-        <button id="but_login">登录</button>
-      </div>
+
+
     </div>
     <div class="bottom"></div>
 
@@ -55,14 +86,14 @@
         var passwordInput=document.getElementById("password");
 //        alert(accountInput.value);
         $.ajax({
-            url : '<%=request.getContextPath()%>/user/login',
+            url : '<%=request.getContextPath()%>/user/login',//不加request.getContextPath()也可以
             data:{account:accountInput.value,password:passwordInput.value},
             cache : false,
             async : true,
             type : "POST",
             dataType : "json",
             success : function (result){
-                  window.location.href='<%=request.getContextPath()%>/page/index'
+                  window.location.replace('/page/index')
             }
         });
     }

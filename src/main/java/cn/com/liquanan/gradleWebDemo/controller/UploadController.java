@@ -1,7 +1,9 @@
 package cn.com.liquanan.gradleWebDemo.controller;
 
 
+import cn.com.liquanan.gradleWebDemo.common.Constant;
 import cn.com.liquanan.gradleWebDemo.common.HttpResult;
+import cn.com.liquanan.gradleWebDemo.utils.PropertyUtil;
 import org.apache.commons.fileupload.FileUploadException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +28,7 @@ public class UploadController {
             @RequestParam MultipartFile pic)
             throws IllegalStateException, IOException {
         if (!pic.isEmpty()) {
-            String path = "D:\\webImage\\image\\";
+            String path = PropertyUtil.getProperty(Constant.diskImagePath);
             String originalFileName = pic.getOriginalFilename();
             // 新的图片名称
             String newFileName = UUID.randomUUID() + originalFileName.substring(originalFileName.lastIndexOf("."));

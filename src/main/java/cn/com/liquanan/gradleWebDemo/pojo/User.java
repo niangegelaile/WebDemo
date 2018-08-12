@@ -9,6 +9,8 @@ public class User {
 
     private Integer age;
 
+    private String head_img;
+
     public Integer getId() {
         return id;
     }
@@ -39,5 +41,13 @@ public class User {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public String getHead_img() {
+        return head_img;
+    }
+
+    public void setHead_img(String head_img) {
+        this.head_img = head_img;
     }
 }

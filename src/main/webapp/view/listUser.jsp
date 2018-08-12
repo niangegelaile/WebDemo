@@ -11,6 +11,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>user_list</title>
+	<style type="text/css">
+		img{
+			width: 30px;
+			height: 30px;
+		}
+
+	</style>
 </head>
 <body>
 	<p>user_list</p>
@@ -29,6 +36,7 @@
 				<td>${user.user_name}</td>
 				<td>${user.password}</td>
 				<td>${user.age}</td>
+				<td><img src="${user.head_img}" alt="头像"></td>
 				<td><a href="<%=path%>/page/updateUser?id=${user.id}">update</a></td>
 				<td><a href="<%=path%>/user/deleteUser.do?id=${user.id}">delete</a></td>
 			</tr>

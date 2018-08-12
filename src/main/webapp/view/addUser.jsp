@@ -14,7 +14,7 @@
 </head>
 <body>
 	<h1>addUser</h1>
-	<form action="<%=path%>/user/addUser.do" method="post">
+	<form action="<%=path%>/user/addUser.do" method="post" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>name:</td>
@@ -27,6 +27,10 @@
 			<tr>
 				<td>age:</td>
 				<td><input type="text" name="age"></td>
+			</tr>
+			<tr>
+				<td>头像:</td>
+				<td><input type="file" name="pic"></td>
 			</tr>
 			<tr>
 				<td><input type="submit" value="Save"></td>

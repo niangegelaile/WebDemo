@@ -6,8 +6,10 @@ CREATE TABLE `user_t` (
   `password` varchar(255) NOT NULL,  
   `age` int(4) NOT NULL,  
   PRIMARY KEY (`id`)  
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;  
-  
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+ALTER table user_t add COLUMN head_img varchar(255);
+
 /*Data for the table `user_t` */  
   
 insert  into `user_t`(`id`,`user_name`,`password`,`age`) values (1,'测试','sfasgfaf',24); 

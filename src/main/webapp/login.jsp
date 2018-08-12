@@ -52,6 +52,7 @@
   </head>
   <body>
     <div class="title">
+      <img src="/image/bbb4aca6-0c40-43d1-80ea-b802b1804c35.png" />
     </div>
 
     <div class="content">

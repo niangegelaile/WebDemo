@@ -1,5 +1,6 @@
 package cn.com.liquanan.gradleWebDemo.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 
@@ -10,11 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import cn.com.liquanan.gradleWebDemo.common.HttpResult;
 import cn.com.liquanan.gradleWebDemo.pojo.User;
 import cn.com.liquanan.gradleWebDemo.service.IUserService;
+import cn.com.liquanan.gradleWebDemo.utils.UploadUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 
 @Controller
@@ -30,23 +34,20 @@ public class UserController {
         return "listUser";
     }
 
-    @RequestMapping("/UIupdateUser")
-    public String updateUserUI(HttpServletRequest request) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        User user = userService.getUserById(id);
-        request.setAttribute("user", user);
-        return "updateUser";
-    }
 
     @RequestMapping("/updateUser")
     public String updateUser(User user) {
         userService.updateUserById(user);
-
         return "redirect:/user/listUser.do";
     }
 
     @RequestMapping("/addUser")
-    public String addUser(User user) {
+    public String addUser(User user, @RequestParam MultipartFile pic) throws IOException {
+
+        String path= UploadUtil.upload(pic);
+
+        user.setHead_img(path);
+
         userService.addUser(user);
         return "redirect:/user/listUser.do";
     }
